@@ -2,11 +2,22 @@
 
 # Specify sources, add new sources below to add them to the build target
 set(SRCS
+    FileHandling/FileHandler.cpp
+    FileHandling/Parsers/XmlParser.cpp
+    FileHandling/Fetchers/LocalFetcher.cpp
+    FileHandling/Fetchers/WebFetcher.cpp
 )
 
 # Specify header files, not required for building but makes the development environment
 set(HPPS
     config.hpp
+    FileHandling/FileHandler.hpp
+    FileHandling/Parsers/XmlParser.hpp
+    FileHandling/Fetchers/LocalFetcher.hpp
+    FileHandling/Fetchers/WebFetcher.hpp
+    Misc/Defines.hpp
+    Misc/Error.hpp
+    Misc/Types.hpp
 )
 
 # Specify template files, not required for building but makes the development environment

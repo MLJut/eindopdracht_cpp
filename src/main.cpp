@@ -1,6 +1,10 @@
+
 #include <iostream>
+#include "../lib/FileHandling/FileHandler.hpp"
+// #include "../lib/FileHandling/Parsers/XmlParser.hpp"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    FileHandler fileHandler;
+    fileHandler.GetFile();
     return 0;
 }
