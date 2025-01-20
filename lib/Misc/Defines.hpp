@@ -1,0 +1,6 @@
+#ifndef MISC_DEFINES_HPP
+#define MISC_DEFINES_HPP
+
+#define MAX_LOCATIES 50
+
+#endif //MISC_DEFINES_HPP

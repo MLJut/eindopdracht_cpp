@@ -2,6 +2,7 @@
     "dependencies": [
       "gtest",
       "cpr",
+      "boost-property-tree",
       "sqlite3"
     ]
   }
