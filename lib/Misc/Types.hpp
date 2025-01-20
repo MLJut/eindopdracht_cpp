@@ -2,7 +2,7 @@
 #define MISC_TYPES_HPP
 
 #include <iostream>
-// #include <string>
+#include <string>
 
 // Struct om een locatie te representeren
 struct Locatie {

@@ -6,7 +6,6 @@
 #include "../Misc/Types.hpp"
 #include "../Misc/Error.hpp"
 #include "Fetchers/LocalFetcher.hpp"
-#include "Fetchers/WebFetcher.hpp"
 #include "Parsers/XmlParser.hpp"
 
 
@@ -18,15 +17,17 @@ public:
 
     Error GetFile();
 
-    std::string SelectLocation();
     Error SelectParser(std::string path);
     FileExtension getFileType(const std::string& fileType);
+    void receiveLocations();
     void emptyData();
 
 private:
     LocalFetcher _local;
-    WebFetcher _web;
     XmlParser _xmlParser;
+
+    Locatie* locaties[MAX_LOCATIES];
+    int locationCount = 0;
 };
 
 #endif //FILEHANDLING_FILEHANDLER_HPP

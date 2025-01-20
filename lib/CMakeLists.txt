@@ -5,7 +5,6 @@ set(SRCS
     FileHandling/FileHandler.cpp
     FileHandling/Parsers/XmlParser.cpp
     FileHandling/Fetchers/LocalFetcher.cpp
-    FileHandling/Fetchers/WebFetcher.cpp
 )
 
 # Specify header files, not required for building but makes the development environment
@@ -14,8 +13,6 @@ set(HPPS
     FileHandling/FileHandler.hpp
     FileHandling/Parsers/XmlParser.hpp
     FileHandling/Fetchers/LocalFetcher.hpp
-    FileHandling/Fetchers/WebFetcher.hpp
-    Misc/Defines.hpp
     Misc/Error.hpp
     Misc/Types.hpp
 )

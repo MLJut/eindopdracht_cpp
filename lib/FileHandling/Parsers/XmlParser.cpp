@@ -1,14 +1,12 @@
 #include "./XmlParser.hpp"
 
-
-
 void XmlParser::readFile(const std::string& filePath) {
     using boost::property_tree::ptree;
     ptree tree;
 
     // Read the XML file
     try {
-        boost::property_tree::read_xml(filePath, tree);
+        boost::property_tree::read_xml(filePath, tree); // Creates memory leak --> 16 bytes
     } catch (const std::exception& e) {
         std::cerr << "Error reading XML file: " << e.what() << std::endl;
         return;
@@ -26,13 +24,24 @@ void XmlParser::readFile(const std::string& filePath) {
             locatie.vijand = attributes.get<std::string>("<xmlattr>.vijand", "");
             locatie.objectenVerborgen = attributes.get<std::string>("<xmlattr>.objectenverborgen", "");
             locatie.objectenZichtbaar = attributes.get<std::string>("<xmlattr>.objectenzichtbaar", "");
-            
+
             // The location name is the text content before the "beschrijving"
             locatie.naam = attributes.get<std::string>("", "");
 
             // The description is stored under the "beschrijving" tag
             locatie.beschrijving = attributes.get<std::string>("beschrijving", "");
             locatie.print();
+            if (locationCount < MAX_LOCATIES) {
+                locaties[locationCount++] = &locatie;
+            }
+            else {
+                std::cerr << "Error: Maximum number of locations reached (" << MAX_LOCATIES << ")\n";
+            }
         }
     }
+    tree.clear();
+}
+
+Locatie* XmlParser::getLocations() {
+    return locaties; // returns pointer to first element of array
 }

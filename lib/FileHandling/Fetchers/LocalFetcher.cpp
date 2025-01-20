@@ -8,6 +8,10 @@
 
 #include "../../Misc/Types.hpp"
 
+#define _CRTDBG_MAP_ALLOC
+#include <cstdlib>
+#include <crtdbg.h>
+
 std::string LocalFetcher::Fetch()
 {
     std::string path = this->GetFilePath();
@@ -68,10 +72,13 @@ std::string LocalFetcher::GetFilePath()
                     {
                         CoTaskMemFree(pszFilePath);
                     }
+                    delete wstrFilePath;
                     pItem->Release();
                 }
+                // delete pItem;
             }
             pFileOpen->Release();
+            // delete pFileOpen;
         }
         CoUninitialize();
     }
