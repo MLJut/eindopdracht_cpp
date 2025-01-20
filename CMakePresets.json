@@ -1,0 +1,26 @@
+{
+    "version": 2,
+    "configurePresets": [
+      {
+        "name": "windows-build",
+        "displayName": "Windows Build Settings",
+        "description": "Sets build and install directories",
+        "generator": "Ninja",
+        "binaryDir": "${sourceDir}/build",
+        "cacheVariables": {
+          "CMAKE_C_COMPILER": "clang",
+          "CMAKE_CXX_COMPILER": "clang++",
+          "CMAKE_VERBOSE_MAKEFILE": "OFF",
+          "CMAKE_BUILD_TYPE": "Debug"
+        }
+      }
+    ],
+    "buildPresets": [
+      {
+        "name": "windows-build",
+        "configurePreset": "windows-build",
+        "displayName": "Build on Windows",
+        "description": "Build on Windows"
+      }
+    ]
+  }

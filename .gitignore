@@ -1,0 +1,5 @@
+build
+.vscode/**
+!.vscode/launch.json
+tools
+.cache
